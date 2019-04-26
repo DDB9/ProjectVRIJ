@@ -6,8 +6,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
 
-public class CharacterControls : MonoBehaviour
-{
+public class CharacterControls : MonoBehaviour {
+
     public static CharacterControls instance = null;
 
     public float speed = 7.0f;
@@ -19,19 +19,28 @@ public class CharacterControls : MonoBehaviour
     private bool grounded = false;
     private float sprintSpeed;
     private float walkSpeed;
+    private Camera camera;
 
-    void Awake()
-    {
+    void Awake() {
+        camera = GetComponentInChildren<Camera>();
+
         sprintSpeed = speed * 1.75f;
         GetComponent<Rigidbody>().freezeRotation = true;
         GetComponent<Rigidbody>().useGravity = false;
         walkSpeed = speed;
     }
 
-    void FixedUpdate()
-    {
-        if (grounded)
-        {
+    private void Update() {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, camera.transform.TransformDirection(Vector3.forward), out hit)) {
+            if (Input.GetMouseButtonDown(0) && hit.collider.CompareTag("Planet")) {
+                Debug.Log("Planet detected");
+            }
+        }
+    }
+
+    void FixedUpdate() {
+        if (grounded) {
             // Calculate how fast we should be moving
             Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             targetVelocity = transform.TransformDirection(targetVelocity);
@@ -46,8 +55,7 @@ public class CharacterControls : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(velocityChange, ForceMode.VelocityChange);
 
             // Jump
-            if (canJump && Input.GetButton("Jump"))
-            {
+            if (canJump && Input.GetButton("Jump")) {
                 GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
             }
         }
@@ -58,13 +66,11 @@ public class CharacterControls : MonoBehaviour
         grounded = false;
     }
 
-    void OnCollisionStay()
-    {
+    void OnCollisionStay() {
         grounded = true;
     }
 
-    float CalculateJumpVerticalSpeed()
-    {
+    float CalculateJumpVerticalSpeed() {
         // From the jump height and gravity we deduce the upwards speed 
         // for the character to reach at the apex.
         return Mathf.Sqrt(2 * jumpHeight * gravity);
