@@ -36,25 +36,32 @@ public class CharacterControls : MonoBehaviour {
     private void Update() {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, camera.transform.TransformDirection(Vector3.forward), out hit)) {
-            if (Input.GetMouseButton(0) && hit.collider.CompareTag("Planet")) {
-                if (hit.collider.name == "Planet1") {
-                    solarSystem.lockOnP1 = true;
+            if (hit.collider.CompareTag("Planet")) {
+                solarSystem.lockOnSolarSystem = true;
+
+                if (Input.GetMouseButton(0)) {
+                    if (hit.collider.name == "Planet1") {
+                        solarSystem.lockOnP1 = true;
+                    }
+                    if (hit.collider.name == "Planet2") {
+                        solarSystem.lockOnP2 = true;
+                    }
+                    if (hit.collider.name == "Player3") {
+                        solarSystem.lockOnP3 = true;
+                    }
+                    if (hit.collider.name == "Planet4") {
+                        solarSystem.lockOnP4 = true;
+                    }
                 }
-                if (hit.collider.name == "Planet2") {
-                    solarSystem.lockOnP2 = true;
-                }
-                if (hit.collider.name == "Player3") {
-                    solarSystem.lockOnP3 = true;
-                }
-                if (hit.collider.name == "Planet4") {
-                    solarSystem.lockOnP4 = true;
+                else {
+                    solarSystem.lockOnP1 = false;
+                    solarSystem.lockOnP2 = false;
+                    solarSystem.lockOnP3 = false;
+                    solarSystem.lockOnP4 = false;
                 }
             }
             else {
-                solarSystem.lockOnP1 = false;
-                solarSystem.lockOnP2 = false;
-                solarSystem.lockOnP3 = false;
-                solarSystem.lockOnP4 = false;
+                solarSystem.lockOnSolarSystem = false;
             }
         }
     }
