@@ -16,45 +16,50 @@ public class CameraFollow : MonoBehaviour {
 	public float camDistanceZToPlayer;
 	public float mouseX;
 	public float mouseY;
+	public float inputX; 
+	public float inputZ;
 	public float finalInputX;
 	public float finalInputZ;
 	public float smoothX;
 	public float smoothY;
+	public bool cameraControlsDisabled;
 	private float rotY = 0.0f;
 	private float rotX = 0.0f;
 
 	// Use this for initialization
-	void Start () {
+	void Start() {
 		Vector3 rot = transform.localRotation.eulerAngles;
 		rotY = rot.y;
 		rotX = rot.x;
+		inputX = Input.GetAxis ("RightStickHorizontal");
+		inputZ = Input.GetAxis ("RightStickVertical");
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update() {
 
-		// We setup the rotation of the sticks here
-		float inputX = Input.GetAxis ("RightStickHorizontal");
-		float inputZ = Input.GetAxis ("RightStickVertical");
-		mouseX = Input.GetAxis ("Mouse X");
-		mouseY = Input.GetAxis ("Mouse Y");
-		finalInputX = inputX + mouseX;
-		finalInputZ = inputZ + mouseY;
+		if (cameraControlsDisabled == false) {
+			// We setup the rotation of the sticks here
+			mouseX = Input.GetAxis ("Mouse X");
+			mouseY = Input.GetAxis ("Mouse Y");
+			finalInputX = inputX + mouseX;
+			finalInputZ = inputZ + mouseY;
 
-		rotY += finalInputX * inputSensitivity * Time.deltaTime;
-		rotX += finalInputZ * inputSensitivity * Time.deltaTime;
+			rotY += finalInputX * inputSensitivity * Time.deltaTime;
+			rotX += finalInputZ * inputSensitivity * Time.deltaTime;
 
-		rotX = Mathf.Clamp (rotX, -clampAngle, clampAngle);
+			rotX = Mathf.Clamp (rotX, -clampAngle, clampAngle);
 
-		Quaternion localRotation = Quaternion.Euler (rotX, rotY, 0.0f);
-		transform.rotation = localRotation;
-        PlayerObj.transform.rotation = Quaternion.Euler(0, rotY, 0);
+			Quaternion localRotation = Quaternion.Euler (rotX, rotY, 0.0f);
+			transform.rotation = localRotation;
+			PlayerObj.transform.rotation = Quaternion.Euler(0, rotY, 0);
+		}
 	}
 
-	void LateUpdate () {
-		CameraUpdater ();
+	void LateUpdate() {
+		CameraUpdater();
 	}
 
 	void CameraUpdater() {

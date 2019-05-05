@@ -10,6 +10,7 @@ public class CharacterControls : MonoBehaviour {
 
     public static CharacterControls instance = null;
 
+    public Camera mainCamera;
     public float speed = 7.0f;
     public float gravity = 20.0f;
     public float maxVelocityChange = 10.0f;
@@ -19,12 +20,9 @@ public class CharacterControls : MonoBehaviour {
     private bool grounded = false;
     private float sprintSpeed;
     private float walkSpeed;
-    private Camera camera;
     private SolarSystemManager solarSystem;
 
     void Awake() {
-        camera = Camera.main;
-
         sprintSpeed = speed * 1.75f;
         GetComponent<Rigidbody>().freezeRotation = true;
         GetComponent<Rigidbody>().useGravity = false;
@@ -35,11 +33,11 @@ public class CharacterControls : MonoBehaviour {
 
     private void Update() {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, camera.transform.TransformDirection(Vector3.forward), out hit)) {
-            if (hit.collider.CompareTag("Planet")) {
+        if (Physics.Raycast(transform.position, mainCamera.transform.TransformDirection(Vector3.forward), out hit)) {
+            if (hit.collider.CompareTag("Planet") && solarSystem.cameraInPosition == false) {
                 solarSystem.lockOnSolarSystem = true;
 
-                if (Input.GetMouseButton(0)) {
+                if (Input.GetMouseButton(0) && solarSystem.cameraInPosition) {
                     if (hit.collider.name == "Planet1") {
                         solarSystem.lockOnP1 = true;
                     }
