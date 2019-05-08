@@ -11,6 +11,7 @@ public class CharacterControls : MonoBehaviour {
     public static CharacterControls instance = null;
 
     public Camera mainCamera;
+    public Camera solarCamera;
     public float speed = 7.0f;
     public float gravity = 20.0f;
     public float maxVelocityChange = 10.0f;
@@ -37,17 +38,19 @@ public class CharacterControls : MonoBehaviour {
             if (hit.collider.CompareTag("Planet") && solarSystem.cameraInPosition == false) {
                 solarSystem.lockOnSolarSystem = true;
 
-                if (Input.GetMouseButton(0) && solarSystem.cameraInPosition) {
-                    if (hit.collider.name == "Planet1") {
+                RaycastHit solarHit;
+                if (Physics.Raycast(Input.mousePosition, solarCamera.transform.TransformDirection(Vector3.forward), out solarHit) 
+                    && Input.GetMouseButton(0) && solarSystem.cameraInPosition) {
+                    if (solarHit.collider.name == "Planet1") {
                         solarSystem.lockOnP1 = true;
                     }
-                    if (hit.collider.name == "Planet2") {
+                    if (solarHit.collider.name == "Planet2") {
                         solarSystem.lockOnP2 = true;
                     }
-                    if (hit.collider.name == "Player3") {
+                    if (solarHit.collider.name == "Player3") {
                         solarSystem.lockOnP3 = true;
                     }
-                    if (hit.collider.name == "Planet4") {
+                    if (solarHit.collider.name == "Planet4") {
                         solarSystem.lockOnP4 = true;
                     }
                 }

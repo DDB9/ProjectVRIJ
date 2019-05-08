@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class SolarSystemManager : MonoBehaviour {
 
+    public GameObject[] planets;
     public GameObject eToInteract;
     public GameObject cameraBase;
     public Camera solarCamera;
@@ -31,6 +32,7 @@ public class SolarSystemManager : MonoBehaviour {
         solarCamera.enabled = false;
 
         playerController = FindObjectOfType<CharacterControls>();
+        planets = GameObject.FindGameObjectsWithTag("Planet");
     }
 
     // Update is called once per frame
@@ -55,7 +57,7 @@ public class SolarSystemManager : MonoBehaviour {
 
         if (cameraInPosition) {
                 // Reset the camera after the player is done with the solar system.
-                if (Input.GetKeyDown("o")){
+                if (Input.GetKeyDown(KeyCode.Return)){
 
                     solarCamera.enabled = !solarCamera.enabled;
                     cameraBase.SetActive(true);
@@ -67,7 +69,8 @@ public class SolarSystemManager : MonoBehaviour {
                 }
             }
         if (lockOnP1) {
-
+            Debug.Log(lockOnP1);
+            planets[0].transform.position = Input.mousePosition;
         }
     }
 }
