@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
 
+	[Header("General Variables")]
 	public float CameraMoveSpeed = 120.0f;
 	public GameObject CameraFollowObj;
 	Vector3 FollowPOS;
@@ -23,11 +24,13 @@ public class CameraFollow : MonoBehaviour {
 	public float smoothX;
 	public float smoothY;
 	public bool cameraControlsDisabled;
+
 	private float rotY = 0.0f;
 	private float rotX = 0.0f;
 
 	// Use this for initialization
 	void Start() {
+
 		Vector3 rot = transform.localRotation.eulerAngles;
 		rotY = rot.y;
 		rotX = rot.x;
