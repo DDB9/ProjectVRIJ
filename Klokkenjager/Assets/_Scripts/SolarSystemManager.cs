@@ -30,7 +30,8 @@ public class SolarSystemManager : MonoBehaviour {
 
     private CharacterControls playerController;
     private GameObject player;
-    private bool solarSystemActive = false;
+    private bool solarSystemActive;
+    private bool solarControls;
     private int planetSelection;
     private int planetRotationSelection;
 
@@ -44,7 +45,7 @@ public class SolarSystemManager : MonoBehaviour {
     }
 
     void Update() {
-        if (solarSystemActive){
+        if (solarSystemActive && solarControls){
             Material planetOneMaterial = GameObject.Find("Planet 1").GetComponent<Renderer>().material;
             Material planetTwoMaterial = GameObject.Find("Planet 2").GetComponent<Renderer>().material;
             Material planetThreeMaterial = GameObject.Find("Planet 3").GetComponent<Renderer>().material;
@@ -138,8 +139,8 @@ public class SolarSystemManager : MonoBehaviour {
             eToInteract.SetActive(true);
             if (Input.GetKeyDown("e")) {
 
-                player.transform.position = player.transform.position;
                 playerController.enabled = false;
+                solarControls = true;
                
                 solarCamera.enabled = !solarCamera.enabled;
                 cameraBase.SetActive(false);
@@ -160,6 +161,7 @@ public class SolarSystemManager : MonoBehaviour {
             // Reset the camera after the player is done with the solar system.
             if (Input.GetKeyDown(KeyCode.Return)){
 
+                solarControls = false;
                 playerController.enabled = true;
 
                 solarCamera.enabled = !solarCamera.enabled;
