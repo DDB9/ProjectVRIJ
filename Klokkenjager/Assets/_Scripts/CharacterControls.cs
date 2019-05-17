@@ -37,29 +37,6 @@ public class CharacterControls : MonoBehaviour {
         if (Physics.Raycast(transform.position, mainCamera.transform.TransformDirection(Vector3.forward), out hit, 5f)) {
             if (hit.collider.CompareTag("Planet") && solarSystem.cameraInPosition == false) {
                 solarSystem.lockOnSolarSystem = true;
-
-                // RaycastHit solarHit;
-                // if (Physics.Raycast(Input.mousePosition, solarCamera.transform.TransformDirection(Vector3.forward), out solarHit) 
-                //     && Input.GetMouseButton(0) && solarSystem.cameraInPosition) {
-                //     if (solarHit.collider.name == "Planet1") {
-                //         solarSystem.lockOnP1 = true;
-                //     }
-                //     if (solarHit.collider.name == "Planet2") {
-                //         solarSystem.lockOnP2 = true;
-                //     }
-                //     if (solarHit.collider.name == "Player3") {
-                //         solarSystem.lockOnP3 = true;
-                //     }
-                //     if (solarHit.collider.name == "Planet4") {
-                //         solarSystem.lockOnP4 = true;
-                //     }
-                // }
-                // else {
-                //     solarSystem.lockOnP1 = false;
-                //     solarSystem.lockOnP2 = false;
-                //     solarSystem.lockOnP3 = false;
-                //     solarSystem.lockOnP4 = false;
-                // }
             }
             else {
                 solarSystem.lockOnSolarSystem = false;
