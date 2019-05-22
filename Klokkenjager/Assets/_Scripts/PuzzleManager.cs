@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class PuzzleManager : MonoBehaviour
 {
+    GameManager manager;
+    
+    Transform EightiesRespawn;
+    
+    void Start() {
+        manager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+
+        EightiesRespawn = GameObject.Find("80sRespawn").transform;
+    }
+
     void OnTriggerEnter(Collider other) {
         // SOLAR SYSTEM PUZZLE
         if (this.name == "Planet 1 Collider" && other.name == "Planet 1") PuzzleOne.planetOneInPlace = true;
@@ -13,8 +23,12 @@ public class PuzzleManager : MonoBehaviour
 
         // 80'S PUZZLE
         if (this.name == "80's Finish" && other.CompareTag("Player")) {
-            // Give access to box?
-            Debug.Log("CORRECT");
+            other.transform.position = EightiesRespawn.position;
+            Debug.Log("PUZZLE 1 COMPLETE");
+            manager.solarPuzzleEighties.SetActive(false);
+            manager.solarSolutionEighties.SetActive(false);
+            manager.solarPuzzleMedieval.SetActive(true);
+            manager.solarSolutionMedieval.SetActive(true);
         }
 
     }
@@ -22,7 +36,7 @@ public class PuzzleManager : MonoBehaviour
     void OnCollisionEnter(Collision other) {
         if (this.name == "Normal Tile" && other.transform.CompareTag("Player")) {
             // Put player back?
-            Debug.Log("INCORRECT");
+            other.transform.position = EightiesRespawn.position;
         }
     }
 }

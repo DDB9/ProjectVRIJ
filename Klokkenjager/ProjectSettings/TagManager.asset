@@ -7,6 +7,7 @@ TagManager:
   - Planet
   - Solar System Camera
   - 80sCorrectTile
+  - DEBUGASSET
   layers:
   - Default
   - TransparentFX
