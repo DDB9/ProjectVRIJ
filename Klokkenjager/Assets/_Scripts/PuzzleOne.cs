@@ -27,7 +27,12 @@ public class PuzzleOne : MonoBehaviour {
                                                            Time.deltaTime * openingSpeed);
             doorRight.transform.rotation = Quaternion.Slerp(doorRight.transform.rotation,
                                                             Quaternion.Euler(0f, 120f, -180f),
-                                                            Time.deltaTime * openingSpeed);                                            
+                                                            Time.deltaTime * openingSpeed);
         }
+
+        Debug.Log(planetOneInPlace);
+        Debug.Log(planetTwoInPlace);
+        Debug.Log(planetThreeInPlace);
+        Debug.Log(planetFourInPlace);
     }
 }
