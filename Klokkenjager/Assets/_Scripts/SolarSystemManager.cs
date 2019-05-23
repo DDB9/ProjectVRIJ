@@ -32,6 +32,7 @@ public class SolarSystemManager : MonoBehaviour {
     private GameObject player;
     private bool solarSystemActive;
     private bool solarControls;
+    private bool solarSelected = false;
     private int planetSelection;
     private int planetRotationSelection;
 
@@ -135,7 +136,7 @@ public class SolarSystemManager : MonoBehaviour {
     // Update is called once per frame
     void LateUpdate() {
         var CameraFollowScript = cameraBase.GetComponent<CameraFollow>();
-        if (lockOnSolarSystem && cameraInPosition == false){
+        if (lockOnSolarSystem && !cameraInPosition){
             eToInteract.SetActive(true);
             if (Input.GetKeyDown("e")) {
 
@@ -159,7 +160,7 @@ public class SolarSystemManager : MonoBehaviour {
 
         if (cameraInPosition) {
             // Reset the camera after the player is done with the solar system.
-            if (Input.GetKeyDown(KeyCode.Return)){
+            if (Input.GetKeyDown(KeyCode.Return)) {
 
                 solarControls = false;
                 playerController.enabled = true;

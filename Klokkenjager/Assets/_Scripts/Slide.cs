@@ -11,6 +11,8 @@ public class Slide : MonoBehaviour
 
     private List<List<GameObject>> tiles = new List<List<GameObject>>();
 
+    public Sprite[] tileImage;
+
     // Use this for initialization
     void Start()
     {
@@ -39,6 +41,7 @@ public class Slide : MonoBehaviour
 
                 //Set number of tile
                 clone.GetComponentInChildren<TextMesh>().text = counter.ToString();
+                clone.GetComponentInChildren<SpriteRenderer>().sprite = tileImage[counter - 1];
 
                 //Add tile to array
                 tilesSubList.Add(clone);
@@ -60,13 +63,11 @@ public class Slide : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Timer to be revealed at end of game
-
-        //Restart
-        if (Input.GetKeyDown("r"))
-        {
-            shuffle();
-        }
+        ////Restart
+        //if (Input.GetKeyDown("r"))
+        //{
+        //    shuffle();
+        //}
 
         //For each direction:
         //    •Check that "Empty" is moveable (e.g. for "up", it is not on bottom row)
