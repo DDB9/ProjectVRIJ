@@ -8,6 +8,8 @@ public class ShufflePuzzleManager : MonoBehaviour {
     public Camera medievalCamera;
     public Camera mainCamera;
     public GameObject player;
+    public GameObject eToInteract;
+    public GameObject cameraBase;
     
     public static bool shuffleLockOn = false;
 
@@ -22,19 +24,25 @@ public class ShufflePuzzleManager : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (shuffleLockOn) {
+            eToInteract.SetActive(true);
             if (Input.GetKeyDown("e")) {
                 cameraInPlace = true;
                 playerController.enabled = false;
+                cameraBase.SetActive(false);
                 player.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 medievalCamera.enabled = true;
-                Camera.main.enabled = false;
+                mainCamera.enabled = false;
             }
 
             if (shuffleLockOn && Input.GetKeyDown("q")) {
                 playerController.enabled = true;
+                cameraBase.SetActive(true);
                 medievalCamera.enabled = false;
                 mainCamera.enabled = true;
             }
+        }
+        else {
+            eToInteract.SetActive(false);
         }
     }
 }

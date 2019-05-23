@@ -6880,7 +6880,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662857342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.923, z: 0}
+  m_LocalPosition: {x: 0, y: 1.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 979495546}
@@ -6917,6 +6917,8 @@ MonoBehaviour:
   medievalCamera: {fileID: 121358022}
   mainCamera: {fileID: 534669904}
   player: {fileID: 1084364008}
+  eToInteract: {fileID: 1494981898}
+  cameraBase: {fileID: 1236967676}
 --- !u!54 &662857346
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6932,7 +6934,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &665941920 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7453089309759033686, guid: 7859e0e24aca98c4ba7dbb99448e8535,
@@ -11621,14 +11623,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1236967676}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.69060946, z: -0, w: 0.7232279}
   m_LocalPosition: {x: 19.26, y: 3.22, z: -0.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 534669905}
   m_Father: {fileID: 0}
   m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -87.357, z: 0}
 --- !u!1 &1240581915 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4334033060765162997, guid: 7859e0e24aca98c4ba7dbb99448e8535,
