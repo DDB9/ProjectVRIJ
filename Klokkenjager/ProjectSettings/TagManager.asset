@@ -8,6 +8,7 @@ TagManager:
   - Solar System Camera
   - 80sCorrectTile
   - DEBUGASSET
+  - Shuffle Puzzle
   layers:
   - Default
   - TransparentFX

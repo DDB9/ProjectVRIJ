@@ -882,6 +882,8 @@ MonoBehaviour:
   eToInteract: {fileID: 1494981898}
   cameraBase: {fileID: 1236967676}
   solarCamera: {fileID: 1714391980}
+  standardMat: {fileID: 2100000, guid: dd29761004aaae04b9079cacee87291c, type: 2}
+  outlineMat: {fileID: 2100000, guid: de89f91343a487d44b7115e647bcbe15, type: 2}
   cameraInPosition: 0
   planetRotations:
   - {fileID: 655890571}
@@ -1073,6 +1075,80 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -3724995912970668040, guid: 7859e0e24aca98c4ba7dbb99448e8535, type: 3}
+--- !u!1 &121358019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 121358020}
+  - component: {fileID: 121358022}
+  m_Layer: 0
+  m_Name: Medieval Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &121358020
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121358019}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 1.02, y: 3, z: -1.02}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 662857343}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!20 &121358022
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121358019}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &122382796 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5578890849620440393, guid: 7859e0e24aca98c4ba7dbb99448e8535,
@@ -1569,36 +1645,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: obj_level_interior_test_26
       objectReference: {fileID: 0}
-    - target: {fileID: -8521679744294064417, guid: 7859e0e24aca98c4ba7dbb99448e8535,
+    - target: {fileID: 3235637585431543559, guid: 7859e0e24aca98c4ba7dbb99448e8535,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
+      propertyPath: m_Name
+      value: Door Puzzle 1 Right
       objectReference: {fileID: 0}
-    - target: {fileID: -8521679744294064417, guid: 7859e0e24aca98c4ba7dbb99448e8535,
+    - target: {fileID: 3411810172025884314, guid: 7859e0e24aca98c4ba7dbb99448e8535,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -46
+      propertyPath: m_Name
+      value: Door Puzzle 1 Left
       objectReference: {fileID: 0}
-    - target: {fileID: -8521679744294064417, guid: 7859e0e24aca98c4ba7dbb99448e8535,
+    - target: {fileID: -4518101646245462123, guid: 7859e0e24aca98c4ba7dbb99448e8535,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8350488735263769889, guid: 7859e0e24aca98c4ba7dbb99448e8535,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8350488735263769889, guid: 7859e0e24aca98c4ba7dbb99448e8535,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -46
+      propertyPath: m_Name
+      value: Door Puzzle 2 Right
       objectReference: {fileID: 0}
     - target: {fileID: -7014412927428828538, guid: 7859e0e24aca98c4ba7dbb99448e8535,
         type: 3}
       propertyPath: m_Name
       value: Door Puzzle 2 Left
       objectReference: {fileID: 0}
+    - target: {fileID: -8521679744294064417, guid: 7859e0e24aca98c4ba7dbb99448e8535,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8521679744294064417, guid: 7859e0e24aca98c4ba7dbb99448e8535,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -46
+      objectReference: {fileID: 0}
+    - target: {fileID: -8521679744294064417, guid: 7859e0e24aca98c4ba7dbb99448e8535,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8350488735263769889, guid: 7859e0e24aca98c4ba7dbb99448e8535,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8350488735263769889, guid: 7859e0e24aca98c4ba7dbb99448e8535,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -46
+      objectReference: {fileID: 0}
     - target: {fileID: -6028829018809790286, guid: 7859e0e24aca98c4ba7dbb99448e8535,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1653,11 +1744,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -47.932705
-      objectReference: {fileID: 0}
-    - target: {fileID: -4518101646245462123, guid: 7859e0e24aca98c4ba7dbb99448e8535,
-        type: 3}
-      propertyPath: m_Name
-      value: Door Puzzle 2 Right
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7859e0e24aca98c4ba7dbb99448e8535,
         type: 3}
@@ -1793,16 +1879,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -46
-      objectReference: {fileID: 0}
-    - target: {fileID: 3235637585431543559, guid: 7859e0e24aca98c4ba7dbb99448e8535,
-        type: 3}
-      propertyPath: m_Name
-      value: Door Puzzle 1 Right
-      objectReference: {fileID: 0}
-    - target: {fileID: 3411810172025884314, guid: 7859e0e24aca98c4ba7dbb99448e8535,
-        type: 3}
-      propertyPath: m_Name
-      value: Door Puzzle 1 Left
       objectReference: {fileID: 0}
     - target: {fileID: 3635349388552051861, guid: 7859e0e24aca98c4ba7dbb99448e8535,
         type: 3}
@@ -5247,12 +5323,17 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 729e7dfd9a350ec4aad0639617f531fc,
         type: 3}
       propertyPath: m_Name
-      value: Kronos_v2
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 729e7dfd9a350ec4aad0639617f531fc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 729e7dfd9a350ec4aad0639617f531fc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.907654
+      value: 19.46
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 729e7dfd9a350ec4aad0639617f531fc,
         type: 3}
@@ -5262,7 +5343,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 729e7dfd9a350ec4aad0639617f531fc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 79.0001
+      value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 729e7dfd9a350ec4aad0639617f531fc,
         type: 3}
@@ -6781,9 +6862,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 662857343}
+  - component: {fileID: 662857344}
+  - component: {fileID: 662857345}
+  - component: {fileID: 662857346}
   m_Layer: 0
   m_Name: Medieval Puzzle Pack
-  m_TagString: Untagged
+  m_TagString: Shuffle Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6801,9 +6885,54 @@ Transform:
   m_Children:
   - {fileID: 979495546}
   - {fileID: 78886269}
+  - {fileID: 121358020}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &662857344
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662857342}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.3072176, y: 3.9200315, z: 6.718567}
+  m_Center: {x: 0.6489792, y: 0.9600158, z: -0.86298275}
+--- !u!114 &662857345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662857342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ca2cd4e86ff3241b32c07a4af653ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  medievalCamera: {fileID: 121358022}
+  mainCamera: {fileID: 534669904}
+  player: {fileID: 1084364008}
+--- !u!54 &662857346
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662857342}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &665941920 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7453089309759033686, guid: 7859e0e24aca98c4ba7dbb99448e8535,
@@ -10386,7 +10515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 534669904}
-  solarCamera: {fileID: 1714391980}
+  medievalCamera: {fileID: 121358022}
   speed: 7
   gravity: 20
   maxVelocityChange: 10
@@ -11493,7 +11622,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1236967676}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 124.21, y: 18.031, z: -12.86}
+  m_LocalPosition: {x: 19.26, y: 3.22, z: -0.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 534669905}
@@ -16008,25 +16137,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planet 1
       objectReference: {fileID: 0}
+    - target: {fileID: -4492364822760733378, guid: a770f308af160524780e80a936928b76,
+        type: 3}
+      propertyPath: m_TagString
+      value: Planet
+      objectReference: {fileID: 0}
     - target: {fileID: -3692514190715339340, guid: a770f308af160524780e80a936928b76,
         type: 3}
       propertyPath: m_Name
       value: Planet 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3692514190715339340, guid: a770f308af160524780e80a936928b76,
+        type: 3}
+      propertyPath: m_TagString
+      value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: -2533397904465526361, guid: a770f308af160524780e80a936928b76,
         type: 3}
       propertyPath: m_Name
       value: Planet 3
       objectReference: {fileID: 0}
+    - target: {fileID: -2533397904465526361, guid: a770f308af160524780e80a936928b76,
+        type: 3}
+      propertyPath: m_TagString
+      value: Planet
+      objectReference: {fileID: 0}
     - target: {fileID: 8988761025120897776, guid: a770f308af160524780e80a936928b76,
         type: 3}
       propertyPath: m_Name
       value: Planet 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8988761025120897776, guid: a770f308af160524780e80a936928b76,
+        type: 3}
+      propertyPath: m_TagString
+      value: Planet
+      objectReference: {fileID: 0}
     - target: {fileID: -3839040883986557476, guid: a770f308af160524780e80a936928b76,
         type: 3}
       propertyPath: m_Name
       value: Sun
+      objectReference: {fileID: 0}
+    - target: {fileID: -3839040883986557476, guid: a770f308af160524780e80a936928b76,
+        type: 3}
+      propertyPath: m_TagString
+      value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a770f308af160524780e80a936928b76,
         type: 3}
@@ -17426,6 +17580,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planet Puzzle Floor
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 27f345260f0e6c649905bdb5acc0e873,
+        type: 3}
+      propertyPath: m_TagString
+      value: Planet
+      objectReference: {fileID: 0}
+    - target: {fileID: -4031032880409066533, guid: 27f345260f0e6c649905bdb5acc0e873,
+        type: 3}
+      propertyPath: m_TagString
+      value: Planet
+      objectReference: {fileID: 0}
+    - target: {fileID: 4449205668984503985, guid: 27f345260f0e6c649905bdb5acc0e873,
+        type: 3}
+      propertyPath: m_TagString
+      value: Planet
+      objectReference: {fileID: 0}
+    - target: {fileID: -5455340515249194601, guid: 27f345260f0e6c649905bdb5acc0e873,
+        type: 3}
+      propertyPath: m_TagString
+      value: Planet
+      objectReference: {fileID: 0}
+    - target: {fileID: -4364239151185021079, guid: 27f345260f0e6c649905bdb5acc0e873,
+        type: 3}
+      propertyPath: m_TagString
+      value: Planet
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 27f345260f0e6c649905bdb5acc0e873,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18290,13 +18469,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974913423}
-  m_LocalRotation: {x: 0.53729963, y: 0.00000015091686, z: 0.8433915, w: 0.00000023689202}
+  m_LocalRotation: {x: -0.53729963, y: 0, z: -0.8433915, w: 0}
   m_LocalPosition: {x: 15.998901, y: 8.759579, z: 100.70145}
   m_LocalScale: {x: 1.2116127, y: 1.211613, z: 0.58546805}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 65, z: 179.99998}
+  m_LocalEulerAnglesHint: {x: -180, y: -115, z: 0}
 --- !u!1 &1977557266 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6491469276127478766, guid: 7859e0e24aca98c4ba7dbb99448e8535,

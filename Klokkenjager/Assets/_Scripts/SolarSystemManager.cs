@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SolarSystemManager : MonoBehaviour {
-
     public static SolarSystemManager instance = null;
 
     public GameObject eToInteract;
     public GameObject cameraBase;
     public Camera solarCamera;
+
+    public Material standardMat;
+    public Material outlineMat;
 
     [System.NonSerialized]
     public bool lockOnP1;
@@ -32,7 +34,6 @@ public class SolarSystemManager : MonoBehaviour {
     private GameObject player;
     private bool solarSystemActive;
     private bool solarControls;
-    private bool solarSelected = false;
     private int planetSelection;
     private int planetRotationSelection;
 
@@ -47,13 +48,9 @@ public class SolarSystemManager : MonoBehaviour {
 
     void Update() {
         if (solarSystemActive && solarControls){
-            Material planetOneMaterial = GameObject.Find("Planet 1").GetComponent<Renderer>().material;
-            Material planetTwoMaterial = GameObject.Find("Planet 2").GetComponent<Renderer>().material;
-            Material planetThreeMaterial = GameObject.Find("Planet 3").GetComponent<Renderer>().material;
-            Material planetFourMaterial = GameObject.Find("Planet 4").GetComponent<Renderer>().material;
-
             if (planetSelection == 0) {
                 GameObject planet = GameObject.Find("Planet 1");
+                planet.GetComponent<Renderer>().material = outlineMat;
                 
                 if (planetRotationSelection == 0) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
                                                                                                planetRotations[0].rotation, 
@@ -69,11 +66,13 @@ public class SolarSystemManager : MonoBehaviour {
                                                                                                Time.deltaTime * rotationSpeed);
             }
             else {
-                planetOneMaterial.color = Color.gray; // Doesn't work yet.
+                GameObject.Find("Planet 1").GetComponent<Renderer>().material = standardMat;
             }
+
             if (planetSelection == 1) {
                 GameObject planet = GameObject.Find("Planet 2");
-                
+                planet.GetComponent<Renderer>().material = outlineMat;
+
                 if (planetRotationSelection == 0) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
                                                                                                planetRotations[0].rotation, 
                                                                                                Time.deltaTime * rotationSpeed);
@@ -87,8 +86,13 @@ public class SolarSystemManager : MonoBehaviour {
                                                                                                planetRotations[3].rotation, 
                                                                                                Time.deltaTime * rotationSpeed);
             }
+            else {
+                GameObject.Find("Planet 2").GetComponent<Renderer>().material = standardMat;
+            }
+
             if (planetSelection == 2) {
                 GameObject planet = GameObject.Find("Planet 3");
+                planet.GetComponent<Renderer>().material = outlineMat;
 
                 if (planetRotationSelection == 0) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
                                                                                                planetRotations[0].rotation, 
@@ -103,8 +107,13 @@ public class SolarSystemManager : MonoBehaviour {
                                                                                                planetRotations[3].rotation, 
                                                                                                Time.deltaTime * rotationSpeed);
             }
+            else {
+                GameObject.Find("Planet 3").GetComponent<Renderer>().material = standardMat;
+            }
+
             if (planetSelection == 3) {
                 GameObject planet = GameObject.Find("Planet 4");
+                planet.GetComponent<Renderer>().material = outlineMat;
 
                 if (planetRotationSelection == 0) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
                                                                                                planetRotations[0].rotation, 
@@ -118,6 +127,9 @@ public class SolarSystemManager : MonoBehaviour {
                 if (planetRotationSelection == 3) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
                                                                                                planetRotations[3].rotation, 
                                                                                                Time.deltaTime * rotationSpeed);
+            }
+            else {
+                GameObject.Find("Planet 4").GetComponent<Renderer>().material = standardMat;
             }
 
             if (Input.GetKeyDown("w")) planetSelection += 1;
@@ -141,6 +153,7 @@ public class SolarSystemManager : MonoBehaviour {
             if (Input.GetKeyDown("e")) {
 
                 playerController.enabled = false;
+                player.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 solarControls = true;
                
                 solarCamera.enabled = !solarCamera.enabled;
@@ -160,7 +173,7 @@ public class SolarSystemManager : MonoBehaviour {
 
         if (cameraInPosition) {
             // Reset the camera after the player is done with the solar system.
-            if (Input.GetKeyDown(KeyCode.Return)) {
+            if (Input.GetKeyDown("q")) {
 
                 solarControls = false;
                 playerController.enabled = true;

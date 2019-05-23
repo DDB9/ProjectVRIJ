@@ -11,7 +11,7 @@ public class CharacterControls : MonoBehaviour {
     public static CharacterControls instance = null;
 
     public Camera mainCamera;
-    public Camera solarCamera;
+    public Camera medievalCamera;
     public float speed = 7.0f;
     public float gravity = 20.0f;
     public float maxVelocityChange = 10.0f;
@@ -22,6 +22,7 @@ public class CharacterControls : MonoBehaviour {
     private float sprintSpeed;
     public float walkSpeed;
     private SolarSystemManager solarSystem;
+    private ShufflePuzzleManager spManager;
 
     void Awake() {
         sprintSpeed = speed * 1.75f;
@@ -34,12 +35,21 @@ public class CharacterControls : MonoBehaviour {
 
     private void Update() {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, mainCamera.transform.TransformDirection(Vector3.forward), out hit, 5f)) {
+        if (Physics.Raycast(transform.position, mainCamera.transform.TransformDirection(Vector3.forward), out hit, 10f)) {
+            // Solar System
             if (hit.collider.CompareTag("Planet") && solarSystem.cameraInPosition == false) {
                 solarSystem.lockOnSolarSystem = true;
             }
             else {
                 solarSystem.lockOnSolarSystem = false;
+            }
+
+            // Medieval Puzzle 
+            if (hit.collider.CompareTag("Shuffle Puzzle")) {
+                ShufflePuzzleManager.shuffleLockOn = true;
+            }
+            else {
+                ShufflePuzzleManager.shuffleLockOn = false;
             }
         }
     }

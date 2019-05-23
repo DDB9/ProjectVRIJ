@@ -29,10 +29,5 @@ public class PuzzleOne : MonoBehaviour {
                                                             Quaternion.Euler(0f, 120f, -180f),
                                                             Time.deltaTime * openingSpeed);
         }
-
-        Debug.Log(planetOneInPlace);
-        Debug.Log(planetTwoInPlace);
-        Debug.Log(planetThreeInPlace);
-        Debug.Log(planetFourInPlace);
     }
 }
