@@ -4,129 +4,58 @@ using UnityEngine;
 
 public class VictorianPuzzleManager : MonoBehaviour {
 
-    public string[] cardTags = new string[10] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
-    public GameObject[] firstHalve;
-    public GameObject[] secondHalve;
+    public List<string> tags = new List<string>();
+    public List<GameObject> firstHalf = new List<GameObject>();
+    public List<GameObject> secondHalf = new List<GameObject>();
 
-    // BOOL LIST
-    bool tagOne;
-    bool tagTwo;
-    bool tagThree;
-    bool tagFour;
-    bool tagFive;
-    bool tagSix;
-    bool tagSeven;
-    bool tagEight;
-    bool tagNine;
-    bool tagTen;
+    public Transform cardClosed;
+    public Transform cardOpen;
+
+    public float rotationSpeed;
+
+    private bool cardRotated = true;
+    public GameObject card;
 
     // Start is called before the first frame update
     void Start() {
-        
+        CreateTagList();
+
+        for (int i = 0; i < 10; i++) {
+            firstHalf[i].tag = tags[i];
+        }
+
+        CreateTagList();
+
+        for (int i = 0; i < 10; i++) {
+            secondHalf[i].tag = tags[i];
+        }
     }
 
     // Update is called once per frame
     void Update() {
-        restart:    
-        // DONT RUN THIS, MAKES UNITY CRASH. TRY DO {} WHILE () INSTEAD;
-        // DONT RUN THIS, MAKES UNITY CRASH. TRY DO {} WHILE () INSTEAD;
-        // DONT RUN THIS, MAKES UNITY CRASH. TRY DO {} WHILE () INSTEAD;
-        // DONT RUN THIS, MAKES UNITY CRASH. TRY DO {} WHILE () INSTEAD;
-        foreach (GameObject go in firstHalve) {
-            var randomTag = cardTags[Random.Range(0, cardTags.Length)];
-            Debug.Log(randomTag);
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out hit, 10f)) {
+            if (tags.Contains(hit.collider.tag) && Input.GetMouseButtonDown(0)) {
+                card = hit.transform.gameObject;
+                cardRotated = false;
+            }
+        }
 
-            if (randomTag == "1" && tagOne == false) {
-                go.tag = randomTag;
-                tagOne = true;
-                Debug.Log("Got here");
-            }
-            else {
-                randomTag = cardTags[Random.Range(0, cardTags.Length)];
-                goto restart;
-            }
+        if (!cardRotated) {
+            card.transform.localRotation = Quaternion.Lerp(card.transform.rotation, cardOpen.rotation, rotationSpeed * Time.deltaTime);
+            cardRotated = true;
+        }
+    }
 
-            if (randomTag == "2" && tagTwo == false) {
-                go.tag = randomTag;
-                tagTwo = true;
+    void CreateTagList() {
+        tags.Clear();
+        for (int i = 0; i < 10; i++) {
+            string _tag = Random.Range(0, 10).ToString();
+            if (tags.Contains(_tag)) {
+                i--;
+                continue;
             }
-            else {
-                randomTag = cardTags[Random.Range(0, cardTags.Length)];
-                goto restart;
-            }
-
-            if (randomTag == "3" && tagThree == false) {
-                go.tag = randomTag;
-                tagThree = true;
-            }
-            else {
-                randomTag = cardTags[Random.Range(0, cardTags.Length)];
-                goto restart;
-            }
-
-            if (randomTag == "4" && tagFour == false) {
-                go.tag = randomTag;
-                tagFour = true;
-            }
-            else {
-                randomTag = cardTags[Random.Range(0, cardTags.Length)];
-                goto restart;
-            }
-
-            if (randomTag == "5" && tagFive == false) {
-                go.tag = randomTag;
-                tagFive = true;
-            }
-            else {
-                randomTag = cardTags[Random.Range(0, cardTags.Length)];
-                goto restart;
-            }
-
-            if (randomTag == "6" && tagSix == false) {
-                go.tag = randomTag;
-                tagSix = true;
-            }
-            else {
-                randomTag = cardTags[Random.Range(0, cardTags.Length)];
-                goto restart;
-            }
-
-            if (randomTag == "7" && tagSeven == false) {
-                go.tag = randomTag;
-                tagSeven = true;
-            }
-
-            else {
-                randomTag = cardTags[Random.Range(0, cardTags.Length)];
-                goto restart;
-            }
-
-            if (randomTag == "8" && tagEight == false) {
-                go.tag = randomTag;
-                tagEight = true;
-            }
-            else {
-                randomTag = cardTags[Random.Range(0, cardTags.Length)];
-                goto restart;
-            }
-
-            if (randomTag == "9" && tagNine == false) {
-                go.tag = randomTag;
-                tagNine = true;
-            }
-            else {
-                randomTag = cardTags[Random.Range(0, cardTags.Length)];
-                goto restart;
-            }
-
-            if (randomTag == "10" && tagTen == false) {
-                go.tag = randomTag;
-                tagTen = true;
-            }
-            else {
-                randomTag = cardTags[Random.Range(0, cardTags.Length)];
-                goto restart;
-            }
+            tags.Add(_tag);
         }
     }
 }

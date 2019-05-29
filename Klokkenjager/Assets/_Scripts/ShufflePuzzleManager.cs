@@ -13,7 +13,6 @@ public class ShufflePuzzleManager : MonoBehaviour {
     
     public static bool shuffleLockOn = false;
 
-    private bool cameraInPlace;
     private CharacterControls playerController;
 
     // Start is called before the first frame update
@@ -26,7 +25,6 @@ public class ShufflePuzzleManager : MonoBehaviour {
         if (shuffleLockOn) {
             eToInteract.SetActive(true);
             if (Input.GetKeyDown("e")) {
-                cameraInPlace = true;
                 playerController.enabled = false;
                 cameraBase.SetActive(false);
                 player.GetComponent<Rigidbody>().velocity = Vector3.zero;

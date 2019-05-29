@@ -19,13 +19,12 @@ public class CharacterControls : MonoBehaviour {
     public float jumpHeight = 1.0f;
 
     private bool grounded = false;
-    private float sprintSpeed;
     public float walkSpeed;
     private SolarSystemManager solarSystem;
     private ShufflePuzzleManager spManager;
+    private VictorianPuzzleManager vpManager;
 
     void Awake() {
-        sprintSpeed = speed * 1.75f;
         GetComponent<Rigidbody>().freezeRotation = true;
         GetComponent<Rigidbody>().useGravity = false;
         walkSpeed = speed;

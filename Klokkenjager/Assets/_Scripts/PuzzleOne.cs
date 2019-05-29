@@ -26,7 +26,7 @@ public class PuzzleOne : MonoBehaviour {
                                                            doorLeftOpenRotation.rotation,
                                                            Time.deltaTime * openingSpeed);
             doorRight.transform.rotation = Quaternion.Slerp(doorRight.transform.rotation,
-                                                            Quaternion.Euler(0f, 120f, -180f),
+                                                            doorRightOpenRotation.rotation,
                                                             Time.deltaTime * openingSpeed);
         }
     }
