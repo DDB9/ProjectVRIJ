@@ -12,7 +12,8 @@ public class CameraFollow : MonoBehaviour {
 	public float inputSensitivity = 150.0f;
 	public GameObject CameraObj;
 	public GameObject PlayerObj;
-	public float camDistanceXToPlayer;
+    public float playerRotationSpeed = 3f;
+    public float camDistanceXToPlayer;
 	public float camDistanceYToPlayer;
 	public float camDistanceZToPlayer;
 	public float mouseX;
@@ -57,7 +58,7 @@ public class CameraFollow : MonoBehaviour {
 
 			Quaternion localRotation = Quaternion.Euler (rotX, rotY, 0.0f);
 			transform.rotation = localRotation;
-			PlayerObj.transform.rotation = Quaternion.Euler(0, rotY, 0);
+			PlayerObj.transform.rotation = Quaternion.Lerp(PlayerObj.transform.rotation, Quaternion.Euler(0, rotY, 0), Time.deltaTime * playerRotationSpeed);
 		}
 	}
 

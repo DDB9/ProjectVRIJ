@@ -8,6 +8,8 @@ public class VictorianPuzzleManager : MonoBehaviour {
     public List<GameObject> firstHalf = new List<GameObject>();
     public List<GameObject> secondHalf = new List<GameObject>();
 
+    [Space]
+
     public Transform cardClosed;
     public Transform cardOpen;
 
@@ -42,7 +44,7 @@ public class VictorianPuzzleManager : MonoBehaviour {
         }
 
         if (!cardRotated) {
-            card.transform.localRotation = Quaternion.Lerp(card.transform.rotation, cardOpen.rotation, rotationSpeed * Time.deltaTime);
+            card.transform.localRotation = Quaternion.Slerp(card.transform.rotation, Quaternion.Euler(0, 180, 0) , rotationSpeed * Time.deltaTime);
             cardRotated = true;
         }
     }
