@@ -22,14 +22,13 @@ public class CharacterControls : MonoBehaviour {
     public float walkSpeed;
     private SolarSystemManager solarSystem;
     private ShufflePuzzleManager spManager;
-    private VictorianPuzzleManager vpManager;
 
     void Awake() {
         GetComponent<Rigidbody>().freezeRotation = true;
         GetComponent<Rigidbody>().useGravity = false;
         walkSpeed = speed;
 
-        solarSystem = FindObjectOfType<SolarSystemManager>();   
+        solarSystem = FindObjectOfType<SolarSystemManager>();
     }
 
     private void Update() {

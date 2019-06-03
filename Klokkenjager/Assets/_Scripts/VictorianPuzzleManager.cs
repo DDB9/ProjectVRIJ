@@ -5,53 +5,75 @@ using UnityEngine;
 public class VictorianPuzzleManager : MonoBehaviour {
 
     public List<string> tags = new List<string>();
+    public List<Sprite> cardFaces = new List<Sprite>();
     public List<GameObject> firstHalf = new List<GameObject>();
     public List<GameObject> secondHalf = new List<GameObject>();
 
     [Space]
 
-    public Transform cardClosed;
-    public Transform cardOpen;
+    public Sprite cardFace;
 
-    public float rotationSpeed;
-
-    private bool cardRotated = true;
-    public GameObject card;
+    private List<GameObject> selectedCards = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start() {
-        CreateTagList();
+        CreateTagList();    // Create the first tag list.
 
         for (int i = 0; i < 10; i++) {
-            firstHalf[i].tag = tags[i];
+            firstHalf[i].tag = tags[i];     // Set the tag.
+
+            int currentCardFace = int.Parse(tags[i]);
+            firstHalf[i].GetComponent<SpriteRenderer>().sprite = cardFaces[currentCardFace];    // Set the card face.
         }
 
-        CreateTagList();
+        CreateTagList();    // Clear the tag list and create it again.
 
         for (int i = 0; i < 10; i++) {
-            secondHalf[i].tag = tags[i];
+            secondHalf[i].tag = tags[i];    // Set the tag.
+
+            int currentCardFace = int.Parse(tags[i]);
+            secondHalf[i].GetComponent<SpriteRenderer>().sprite = cardFaces[currentCardFace];    // Set the card face.
         }
+
     }
 
     // Update is called once per frame
     void Update() {
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out hit, 10f)) {
-            if (tags.Contains(hit.collider.tag) && Input.GetMouseButtonDown(0)) {
-                card = hit.transform.gameObject;
-                cardRotated = false;
+        
+        if (selectedCards.Count == 2) {
+            if (selectedCards[0].tag == selectedCards[1].tag) {
+                foreach (GameObject crd in selectedCards) {
+                    crd.transform.rotation = crd.transform.rotation;
+                    crd.SetActive(false); // DEBUG 
+                }
+            }
+            else {
+                foreach (GameObject crd in selectedCards) {
+                    crd.transform.Rotate(0, 180, 0);
+                }
+                selectedCards.Clear();
             }
         }
-
-        if (!cardRotated) {
-            card.transform.localRotation = Quaternion.Slerp(card.transform.rotation, Quaternion.Euler(0, 180, 0) , rotationSpeed * Time.deltaTime);
-            cardRotated = true;
+        if (selectedCards.Count > 2) {
+            selectedCards.Clear();
+        }
+        Debug.Log(selectedCards.Count);
+        
+        
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out RaycastHit hit, 10f)) {
+            if (tags.Contains(hit.collider.tag) && Input.GetMouseButtonDown(0)) {
+                //hit.transform.Rotate(0, 180, 0);
+                if (!selectedCards.Contains(hit.transform.gameObject)) {
+                    selectedCards.Add(hit.transform.gameObject);
+                }
+                // Quaternion Slerp if card transition looks like shit.
+            }
         }
     }
 
     void CreateTagList() {
-        tags.Clear();
-        for (int i = 0; i < 10; i++) {
+        tags.Clear();                   // clear the tag list first
+        for (int i = 0; i < 10; i++) {  // then create it from scratch.
             string _tag = Random.Range(0, 10).ToString();
             if (tags.Contains(_tag)) {
                 i--;
