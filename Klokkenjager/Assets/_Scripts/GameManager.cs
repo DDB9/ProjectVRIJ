@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour {
     public GameObject solarSolutionEighties;
     public GameObject solarSolutionMedieval;
 
+    public static bool victorianPuzzleComplete;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,8 @@ public class GameManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        
+        if (victorianPuzzleComplete) {
+            Debug.Log("LAST PUZZLE COMPLETE!");
+        }
     }
 }

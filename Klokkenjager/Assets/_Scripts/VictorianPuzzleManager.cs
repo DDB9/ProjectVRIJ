@@ -14,6 +14,7 @@ public class VictorianPuzzleManager : MonoBehaviour {
     public Sprite cardFace;
 
     private List<GameObject> selectedCards = new List<GameObject>();
+    private List<GameObject> completedCards = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start() {
@@ -45,6 +46,7 @@ public class VictorianPuzzleManager : MonoBehaviour {
                 foreach (GameObject crd in selectedCards) {
                     crd.transform.rotation = crd.transform.rotation;
                     crd.SetActive(false); // DEBUG 
+                    completedCards.Add(crd);
                 }
             }
             else {
@@ -56,6 +58,9 @@ public class VictorianPuzzleManager : MonoBehaviour {
         }
         if (selectedCards.Count > 2) {
             selectedCards.Clear();
+        }
+        if (completedCards.Count >= 20) {
+            GameManager.victorianPuzzleComplete = true;
         }
         
         
