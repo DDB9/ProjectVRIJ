@@ -57,7 +57,6 @@ public class VictorianPuzzleManager : MonoBehaviour {
         if (selectedCards.Count > 2) {
             selectedCards.Clear();
         }
-        Debug.Log(selectedCards.Count);
         
         
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out RaycastHit hit, 10f)) {
