@@ -11,8 +11,6 @@ public class VictorianPuzzleManager : MonoBehaviour {
 
     [Space]
 
-    public Sprite cardFace;
-
     private List<GameObject> selectedCards = new List<GameObject>();
     private List<GameObject> completedCards = new List<GameObject>();
 
@@ -59,7 +57,7 @@ public class VictorianPuzzleManager : MonoBehaviour {
         if (selectedCards.Count > 2) {
             selectedCards.Clear();
         }
-        if (completedCards.Count >= 20) {
+        if (selectedCards.Count >= 20) {
             GameManager.victorianPuzzleComplete = true;
         }
         
