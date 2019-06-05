@@ -10,6 +10,9 @@ public class ShufflePuzzleManager : MonoBehaviour {
     public GameObject player;
     public GameObject eToInteract;
     public GameObject cameraBase;
+
+    public AudioClip[] stoneSounds = new AudioClip[7];
+    public AudioSource stoneSource;
     
     public static bool shuffleLockOn = false;
 
@@ -42,5 +45,26 @@ public class ShufflePuzzleManager : MonoBehaviour {
         else {
             eToInteract.SetActive(false);
         }
+
+        
     }
+
+    // Directionairy sound output.
+    public void PlayUpSound() {
+        stoneSource.clip = stoneSounds[Random.Range(0, stoneSounds.Length)];
+        stoneSource.Play();
+    }
+    public void PlayDownSound() {
+        stoneSource.clip = stoneSounds[Random.Range(0, stoneSounds.Length)];
+        stoneSource.Play();
+    }
+    public void PlayRightSound() {
+        stoneSource.clip = stoneSounds[Random.Range(0, stoneSounds.Length)];
+        stoneSource.Play();
+    }
+    public void PlayLeftSound() {
+        stoneSource.clip = stoneSounds[Random.Range(0, stoneSounds.Length)];
+        stoneSource.Play();
+    }
+
 }

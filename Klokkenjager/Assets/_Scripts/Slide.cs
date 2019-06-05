@@ -4,6 +4,9 @@ using System.Collections.Generic;
 public class Slide : MonoBehaviour
 {
     //Variables
+    public ShufflePuzzleManager puzzleManager;
+    public AudioSource middleAgesTheme;
+     
     public int xDimention;
     public int yDimention;
     public GameObject prefab;
@@ -16,6 +19,7 @@ public class Slide : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        
         GameObject clone = prefab;
         int counter = 0;
 
@@ -50,7 +54,7 @@ public class Slide : MonoBehaviour
             tiles.Add(tilesSubList);
         }
         //Last tile is "removed" and renamed
-        clone.SetActive(false);
+        clone.transform.GetChild(1).gameObject.SetActive(false);
         clone.name = "Empty";
 
         //Shuffle
@@ -63,11 +67,11 @@ public class Slide : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ////Restart
-        //if (Input.GetKeyDown("r"))
-        //{
+        // //Restart
+        // if (Input.GetKeyDown("r"))
+        // {
         //    shuffle();
-        //}
+        // }
 
         //For each direction:
         //    •Check that "Empty" is moveable (e.g. for "up", it is not on bottom row)
@@ -101,6 +105,7 @@ public class Slide : MonoBehaviour
                 tiles[y + 1][x] = tiles[y][x];
                 tiles[y][x] = temp;
 
+                puzzleManager.PlayUpSound();
                 updatePos();
             }
         }
@@ -130,8 +135,8 @@ public class Slide : MonoBehaviour
             tiles[y - 1][x] = tiles[y][x];
             tiles[y][x] = temp;
 
+            puzzleManager.PlayDownSound();
             updatePos();
-
         }
 
         else if (Input.GetKeyDown("right") && right())
@@ -161,7 +166,8 @@ public class Slide : MonoBehaviour
                 tiles[y][x - 1] = tiles[y][x];
                 tiles[y][x] = temp;
 
-                updatePos(); 
+                puzzleManager.PlayRightSound();
+                updatePos();
             }
         }
 
@@ -190,6 +196,7 @@ public class Slide : MonoBehaviour
             tiles[y][x + 1] = tiles[y][x];
             tiles[y][x] = temp;
 
+            puzzleManager.PlayRightSound();
             updatePos();
         }
 
@@ -211,6 +218,7 @@ public class Slide : MonoBehaviour
                 //Move tile to location based on shuffled array
                 Vector3 movePosition = new Vector3(x, .25f, -y);
                 tiles[y][x].transform.position = movePosition;
+                
             }
         }
     }

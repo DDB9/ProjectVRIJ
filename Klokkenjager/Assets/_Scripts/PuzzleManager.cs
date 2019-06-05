@@ -8,12 +8,16 @@ public class PuzzleManager : MonoBehaviour
     
     Transform EightiesRespawn;
     Transform MedievalRespawn;
-    
+
+    Slide slide;
+
     void Start() {
         manager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
         EightiesRespawn = GameObject.Find("80sRespawn").transform;
         MedievalRespawn = GameObject.Find("Medieval Respawn").transform;
+
+        slide = FindObjectOfType<Slide>();
     }
 
     void OnTriggerEnter(Collider other) {
@@ -38,6 +42,8 @@ public class PuzzleManager : MonoBehaviour
             manager.solarSolutionEighties.SetActive(false);
             manager.solarPuzzleMedieval.SetActive(true);
             manager.solarSolutionMedieval.SetActive(true);
+
+            slide.middleAgesTheme.Play();
         }
 
         if (this.name == "Slide" && other.CompareTag("Player")) {
