@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class VictorianPuzzleManager : MonoBehaviour {
 
@@ -10,6 +11,11 @@ public class VictorianPuzzleManager : MonoBehaviour {
     public List<GameObject> secondHalf = new List<GameObject>();
 
     [Space]
+
+    public bool victorianLockOn;
+
+    public GameObject eToInteract;
+    public GameObject victorianOverlay;
 
     private List<GameObject> selectedCards = new List<GameObject>();
     private List<GameObject> completedCards = new List<GameObject>();
@@ -38,39 +44,46 @@ public class VictorianPuzzleManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        
-        if (selectedCards.Count == 2) {
-            if (selectedCards[0].tag == selectedCards[1].tag) {
-                foreach (GameObject crd in selectedCards) {
-                    crd.transform.rotation = crd.transform.rotation;
-                    crd.SetActive(false); // DEBUG 
-                    completedCards.Add(crd);
+        if (victorianLockOn) {
+            eToInteract.SetActive(true);
+            if (Input.GetKeyDown("e")) {
+                victorianOverlay.SetActive(true);
+            }
+
+            if (selectedCards.Count == 2) {
+                if (selectedCards[0].tag == selectedCards[1].tag) {
+                    foreach (GameObject crd in selectedCards) {
+                        crd.transform.rotation = crd.transform.rotation;
+                        crd.SetActive(false); // DEBUG 
+                        completedCards.Add(crd);
+                    }
+                }
+                else {
+                    foreach (GameObject crd in selectedCards) {
+                        crd.transform.Rotate(0, 180, 0);
+                    }
+                    selectedCards.Clear();
                 }
             }
-            else {
-                foreach (GameObject crd in selectedCards) {
-                    crd.transform.Rotate(0, 180, 0);
-                }
+            if (selectedCards.Count > 2) {
                 selectedCards.Clear();
             }
-        }
-        if (selectedCards.Count > 2) {
-            selectedCards.Clear();
-        }
-        if (selectedCards.Count >= 20) {
-            GameManager.victorianPuzzleComplete = true;
-        }
-        
-        
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out RaycastHit hit, 10f)) {
-            if (tags.Contains(hit.collider.tag) && Input.GetMouseButtonDown(0)) {
-                //hit.transform.Rotate(0, 180, 0);
-                if (!selectedCards.Contains(hit.transform.gameObject)) {
-                    selectedCards.Add(hit.transform.gameObject);
+            if (selectedCards.Count >= 20) {
+                GameManager.victorianPuzzleComplete = true;
+            }
+
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out RaycastHit hit, 10f)) {
+                if (tags.Contains(hit.collider.tag) && Input.GetMouseButtonDown(0)) {
+                    //hit.transform.Rotate(0, 180, 0);
+                    if (!selectedCards.Contains(hit.transform.gameObject)) {
+                        selectedCards.Add(hit.transform.gameObject);
+                    }
+                    // Quaternion Slerp if card transition looks like shit.
                 }
-                // Quaternion Slerp if card transition looks like shit.
             }
         }
+
+
     }
 
     void CreateTagList() {

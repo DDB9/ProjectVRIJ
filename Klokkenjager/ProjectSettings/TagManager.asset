@@ -19,6 +19,7 @@ TagManager:
   - 7
   - 8
   - 9
+  - VictorianTable
   layers:
   - Default
   - TransparentFX

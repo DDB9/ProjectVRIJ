@@ -22,6 +22,7 @@ public class CharacterControls : MonoBehaviour {
     public float walkSpeed;
     private SolarSystemManager solarSystem;
     private ShufflePuzzleManager spManager;
+    private VictorianPuzzleManager vpManager;
 
     void Awake() {
         GetComponent<Rigidbody>().freezeRotation = true;
@@ -29,13 +30,14 @@ public class CharacterControls : MonoBehaviour {
         walkSpeed = speed;
 
         solarSystem = FindObjectOfType<SolarSystemManager>();
+        vpManager = FindObjectOfType<VictorianPuzzleManager>();
     }
 
     private void Update() {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, mainCamera.transform.TransformDirection(Vector3.forward), out hit, 10f)) {
+        if (Physics.Raycast(transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out hit, 10f)) {
             // Solar System
-            if (hit.collider.CompareTag("Planet") && solarSystem.cameraInPosition == false) {
+            if (hit.collider.CompareTag("Planet") && !solarSystem.cameraInPosition) {
                 solarSystem.lockOnSolarSystem = true;
             }
             else {
@@ -48,6 +50,14 @@ public class CharacterControls : MonoBehaviour {
             }
             else {
                 ShufflePuzzleManager.shuffleLockOn = false;
+            }
+
+            // Victorian Puzzle
+            if (hit.collider.CompareTag("VictorianTable")) {
+                vpManager.victorianLockOn = true;
+            }
+            else {
+                vpManager.victorianLockOn = false;
             }
         }
     }
