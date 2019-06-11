@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: b85915b03ff907a4593f764f0e09d7c4, type: 2}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1958091518}
-  m_IndirectSpecularColor: {r: 0.49997723, g: 0.50520617, b: 0.5371363, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2186,6 +2186,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: obj_level_interior_test_26
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 7859e0e24aca98c4ba7dbb99448e8535,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3235637585431543559, guid: 7859e0e24aca98c4ba7dbb99448e8535,
         type: 3}
@@ -11468,6 +11473,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: obj_level_finalized_v4
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 5326a6c6900e4154697f1411267b1d6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5326a6c6900e4154697f1411267b1d6c,
         type: 3}
@@ -21884,6 +21894,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Planet
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: a770f308af160524780e80a936928b76,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4492364822760733378, guid: a770f308af160524780e80a936928b76,
         type: 3}
