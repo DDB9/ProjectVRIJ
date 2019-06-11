@@ -38,7 +38,7 @@ public class CharacterControls : MonoBehaviour {
 
     private void Update() {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out hit, 20f, 9)) {
+        if (Physics.Raycast(transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out hit, 100f)) {
             // Solar System
             if (hit.collider.CompareTag("Planet") && !solarSystem.cameraInPosition) {
                 solarSystem.lockOnSolarSystem = true;
@@ -56,7 +56,7 @@ public class CharacterControls : MonoBehaviour {
             }
 
             // Victorian Puzzle
-            if (hit.collider.CompareTag("VictorianTable")) {
+            if (hit.collider.tag == "VictorianTable") {
                 vpManager.victorianLockOn = true;
             }
             else {
@@ -64,7 +64,6 @@ public class CharacterControls : MonoBehaviour {
             }
 
             if (hit.collider.CompareTag("Box")) {
-                Debug.Log("DOOS");
                 eToInteract.SetActive(true);
                 if (Input.GetKeyDown("e")) {
                     hit.collider.transform.gameObject.SetActive(false);

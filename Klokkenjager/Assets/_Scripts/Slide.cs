@@ -44,8 +44,9 @@ public class Slide : MonoBehaviour
                 clone.SetActive(true);
 
                 //Set number of tile
-                clone.GetComponentInChildren<TextMesh>().text = counter.ToString();
+                clone.transform.GetChild(0).name = counter.ToString();
                 clone.GetComponentInChildren<SpriteRenderer>().sprite = tileImage[counter - 1];
+                clone.transform.GetChild(0).gameObject.SetActive(false);
 
                 //Add tile to array
                 tilesSubList.Add(clone);
@@ -54,8 +55,8 @@ public class Slide : MonoBehaviour
             tiles.Add(tilesSubList);
         }
         //Last tile is "removed" and renamed
-        clone.transform.GetChild(1).gameObject.SetActive(false);
         clone.name = "Empty";
+        clone.transform.GetChild(1).gameObject.SetActive(false);
 
         //Shuffle
         shuffle();
@@ -292,7 +293,7 @@ public class Slide : MonoBehaviour
         {
             for (int x = 0; x < yDimention; x++)
             {
-                if (tiles[y][x].GetComponentInChildren<TextMesh>().text != counter.ToString())
+                if (tiles[y][x].transform.GetChild(0).name != counter.ToString())
                     return false;
                 counter++;
             }
