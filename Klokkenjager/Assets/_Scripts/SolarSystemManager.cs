@@ -235,9 +235,6 @@ public class SolarSystemManager : MonoBehaviour {
             if (Input.GetKeyDown("a")) planetRotationSelection -= 1;
             if (planetRotationSelection >= 4) planetRotationSelection = 0;
             if (planetRotationSelection <= -1) planetRotationSelection = 3;
-
-            Debug.Log(planetRotationSelection);
-            Debug.Log(planetSelection);
         }
             
     }

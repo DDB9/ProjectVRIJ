@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -12,6 +13,8 @@ public class CharacterControls : MonoBehaviour {
 
     public Camera mainCamera;
     public Camera medievalCamera;
+    public GameObject eToInteract;
+    public List<GameObject> powerbar = new List<GameObject>();
     public float speed = 7.0f;
     public float gravity = 20.0f;
     public float maxVelocityChange = 10.0f;
@@ -35,7 +38,7 @@ public class CharacterControls : MonoBehaviour {
 
     private void Update() {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out hit, 10f, 9)) {
+        if (Physics.Raycast(transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out hit, 20f, 9)) {
             // Solar System
             if (hit.collider.CompareTag("Planet") && !solarSystem.cameraInPosition) {
                 solarSystem.lockOnSolarSystem = true;
@@ -58,6 +61,18 @@ public class CharacterControls : MonoBehaviour {
             }
             else {
                 vpManager.victorianLockOn = false;
+            }
+
+            if (hit.collider.CompareTag("Box")) {
+                Debug.Log("DOOS");
+                eToInteract.SetActive(true);
+                if (Input.GetKeyDown("e")) {
+                    hit.collider.transform.gameObject.SetActive(false);
+                    powerbar.RemoveAt(0);
+                }
+            }
+            else {
+                eToInteract.SetActive(false);
             }
         }
 
