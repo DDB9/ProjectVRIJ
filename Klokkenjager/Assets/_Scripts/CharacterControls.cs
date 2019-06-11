@@ -60,6 +60,7 @@ public class CharacterControls : MonoBehaviour {
                 vpManager.victorianLockOn = false;
             }
         }
+
     }
 
     void FixedUpdate() {

@@ -45,7 +45,7 @@ public class ShufflePuzzleManager : MonoBehaviour {
         else {
             eToInteract.SetActive(false);
         }
-
+        Debug.Log(shuffleLockOn);
         
     }
 

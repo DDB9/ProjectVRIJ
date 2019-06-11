@@ -33,6 +33,7 @@ public class SolarSystemManager : MonoBehaviour {
     private GameObject player;
     private bool solarSystemActive;
     private bool solarControls;
+    private bool ranOnce;
     private int planetSelection;
     private int planetRotationSelection;
     private int currentPlanetRotation1;
@@ -49,29 +50,28 @@ public class SolarSystemManager : MonoBehaviour {
         solarCamera.enabled = false;
 
         playerController = FindObjectOfType<CharacterControls>();
-        player = GameObject.Find("Player");
+        player = GameObject.Find("Kronos");
 
-        planetOneMat = GameObject.Find("Planet 1").GetComponent<Renderer>().material;
-        planetTwoMat = GameObject.Find("Planet 2").GetComponent<Renderer>().material;
-        planetThreeMat = GameObject.Find("Planet 3").GetComponent<Renderer>().material;
-        planetFourMat = GameObject.Find("Planet 4").GetComponent<Renderer>().material;
+        planetOneMat = GameObject.Find("Planet 1").transform.GetChild(1).GetComponent<Renderer>().material;
+        planetTwoMat = GameObject.Find("Planet 2").transform.GetChild(1).GetComponent<Renderer>().material;
+        planetThreeMat = GameObject.Find("Planet 3").transform.GetChild(1).GetComponent<Renderer>().material;
+        planetFourMat = GameObject.Find("Planet 4").transform.GetChild(1).GetComponent<Renderer>().material;
     }
 
     void Update() {
-
         if (solarSystemActive && solarControls){
             if (planetSelection == 0) {
                 GameObject planet = GameObject.Find("Planet 1");
-                planet.GetComponent<Renderer>().material = outlineMat;  // change selection material for selected planet.
+                planet.transform.GetChild(1).GetComponent<Renderer>().material = outlineMat; // change selection material for  selected planet.
 
-                if (currentPlanetRotation1 >= 0 && currentPlanetRotation1 <= 3) { // check if current planet rotation has been assigned.
+                if (!ranOnce) { // check if current planet rotation has been assigned.
                     planetRotationSelection = currentPlanetRotation1;
+                    ranOnce = true;
                 }
 
-                // PLANET ROTATION.
-                if (planetRotationSelection == 0){
-                    planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
-                                                                 planetRotations[0].rotation, 
+                if (planetRotationSelection == 0) {
+                    planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation,
+                                                                 planetRotations[0].rotation,
                                                                  Time.deltaTime * rotationSpeed);
                     currentPlanetRotation1 = planetRotationSelection;
                 }
@@ -82,15 +82,13 @@ public class SolarSystemManager : MonoBehaviour {
                                                                  Time.deltaTime * rotationSpeed);
                     currentPlanetRotation1 = planetRotationSelection;
                 }
-
-                if (planetRotationSelection == 1) {
+                if (planetRotationSelection == 2) {
                     planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation,
                                                                  planetRotations[2].rotation,
                                                                  Time.deltaTime * rotationSpeed);
                     currentPlanetRotation1 = planetRotationSelection;
                 }
-
-                if (planetRotationSelection == 1) {
+                if (planetRotationSelection == 3) {
                     planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation,
                                                                  planetRotations[3].rotation,
                                                                  Time.deltaTime * rotationSpeed);
@@ -98,15 +96,16 @@ public class SolarSystemManager : MonoBehaviour {
                 }
             }
             else {
-                GameObject.Find("Planet 1").GetComponent<Renderer>().material = planetOneMat;
+                GameObject.Find("Planet 1").transform.GetChild(1).GetComponent<Renderer>().material = planetTwoMat;
             }
 
             if (planetSelection == 1) {
                 GameObject planet = GameObject.Find("Planet 2");
-                planet.GetComponent<Renderer>().material = outlineMat;
+                planet.transform.GetChild(1).GetComponent<Renderer>().material = outlineMat; // change selection material for  selected planet.
 
-                if (currentPlanetRotation2 >= 0 && currentPlanetRotation2 <= 3) { // check if current planet rotation has been assigned.
+                if (!ranOnce) { // check if current planet rotation has been assigned.
                     planetRotationSelection = currentPlanetRotation2;
+                    ranOnce = true;
                 }
 
                 if (planetRotationSelection == 0){
@@ -136,15 +135,16 @@ public class SolarSystemManager : MonoBehaviour {
                 }
             }
             else {
-                GameObject.Find("Planet 2").GetComponent<Renderer>().material = planetTwoMat;
+                GameObject.Find("Planet 2").transform.GetChild(1).GetComponent<Renderer>().material = planetTwoMat;
             }
 
             if (planetSelection == 2) {
                 GameObject planet = GameObject.Find("Planet 3");
-                planet.GetComponent<Renderer>().material = outlineMat;
+                planet.transform.GetChild(1).GetComponent<Renderer>().material = outlineMat;
 
-                if (currentPlanetRotation3 >= 0 && currentPlanetRotation3 <= 3) { // check if current planet rotation has been assigned.
+                if (!ranOnce) {
                     planetRotationSelection = currentPlanetRotation3;
+                    ranOnce = true;
                 }
 
                 if (planetRotationSelection == 0) {
@@ -153,6 +153,7 @@ public class SolarSystemManager : MonoBehaviour {
                                                                  Time.deltaTime * rotationSpeed);
                     currentPlanetRotation3 = planetRotationSelection;
                 }
+
                 if (planetRotationSelection == 1) {
                     planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation,
                                                                  planetRotations[1].rotation,
@@ -175,15 +176,16 @@ public class SolarSystemManager : MonoBehaviour {
                 }
             }
             else {
-                GameObject.Find("Planet 3").GetComponent<Renderer>().material = planetThreeMat;
+                GameObject.Find("Planet 3").transform.GetChild(1).GetComponent<Renderer>().material = planetThreeMat;
             }
 
             if (planetSelection == 3) {
                 GameObject planet = GameObject.Find("Planet 4");
-                planet.GetComponent<Renderer>().material = outlineMat;
+                planet.transform.GetChild(1).GetComponent<Renderer>().material = outlineMat;
 
-                if (currentPlanetRotation4 >= 0 && currentPlanetRotation4 <= 3) { // check if current planet rotation has been assigned.
+                if (!ranOnce) { // check if current planet rotation has been assigned.
                     planetRotationSelection = currentPlanetRotation4;
+                    ranOnce = true;
                 }
 
                 if (planetRotationSelection == 0) {
@@ -215,11 +217,17 @@ public class SolarSystemManager : MonoBehaviour {
                 }
             }
             else {
-                GameObject.Find("Planet 4").GetComponent<Renderer>().material = planetFourMat;
+                GameObject.Find("Planet 4").transform.GetChild(1).GetComponent<Renderer>().material = planetFourMat;
             }
 
-            if (Input.GetKeyDown("w")) planetSelection += 1;
-            if (Input.GetKeyDown("s")) planetSelection -= 1;      
+            if (Input.GetKeyDown("w")) {
+                planetSelection += 1;
+                ranOnce = false;
+            }
+            if (Input.GetKeyDown("s")) {
+                planetSelection -= 1;
+                ranOnce = false;
+            }
             if (planetSelection >= 4) planetSelection = 0;
             if (planetSelection <= -1) planetSelection = 3;
 
@@ -227,6 +235,9 @@ public class SolarSystemManager : MonoBehaviour {
             if (Input.GetKeyDown("a")) planetRotationSelection -= 1;
             if (planetRotationSelection >= 4) planetRotationSelection = 0;
             if (planetRotationSelection <= -1) planetRotationSelection = 3;
+
+            Debug.Log(planetRotationSelection);
+            Debug.Log(planetSelection);
         }
             
     }
