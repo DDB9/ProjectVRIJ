@@ -10,7 +10,6 @@ public class SolarSystemManager : MonoBehaviour {
     public GameObject cameraBase;
     public Camera solarCamera;
 
-    public Material standardMat;
     public Material outlineMat;
 
     [System.NonSerialized]
@@ -36,6 +35,13 @@ public class SolarSystemManager : MonoBehaviour {
     private bool solarControls;
     private int planetSelection;
     private int planetRotationSelection;
+    private int currentPlanetRotation1;
+    private int currentPlanetRotation2;
+    private int currentPlanetRotation3;
+    private int currentPlanetRotation4;
+
+    private Material planetOneMat, planetTwoMat, planetThreeMat, planetFourMat;
+
 
     // Start is called before the first frame update
     void Start() {
@@ -44,92 +50,172 @@ public class SolarSystemManager : MonoBehaviour {
 
         playerController = FindObjectOfType<CharacterControls>();
         player = GameObject.Find("Player");
+
+        planetOneMat = GameObject.Find("Planet 1").GetComponent<Renderer>().material;
+        planetTwoMat = GameObject.Find("Planet 2").GetComponent<Renderer>().material;
+        planetThreeMat = GameObject.Find("Planet 3").GetComponent<Renderer>().material;
+        planetFourMat = GameObject.Find("Planet 4").GetComponent<Renderer>().material;
     }
 
     void Update() {
+
         if (solarSystemActive && solarControls){
             if (planetSelection == 0) {
                 GameObject planet = GameObject.Find("Planet 1");
-                planet.GetComponent<Renderer>().material = outlineMat;
-                
-                if (planetRotationSelection == 0) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
-                                                                                               planetRotations[0].rotation, 
-                                                                                               Time.deltaTime * rotationSpeed);
-                if (planetRotationSelection == 1) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
-                                                                                               planetRotations[1].rotation, 
-                                                                                               Time.deltaTime * rotationSpeed);
-                if (planetRotationSelection == 2) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
-                                                                                               planetRotations[2].rotation, 
-                                                                                               Time.deltaTime * rotationSpeed);
-                if (planetRotationSelection == 3) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
-                                                                                               planetRotations[3].rotation, 
-                                                                                               Time.deltaTime * rotationSpeed);
+                planet.GetComponent<Renderer>().material = outlineMat;  // change selection material for selected planet.
+
+                if (currentPlanetRotation1 >= 0 && currentPlanetRotation1 <= 3) { // check if current planet rotation has been assigned.
+                    planetRotationSelection = currentPlanetRotation1;
+                }
+
+                // PLANET ROTATION.
+                if (planetRotationSelection == 0){
+                    planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
+                                                                 planetRotations[0].rotation, 
+                                                                 Time.deltaTime * rotationSpeed);
+                    currentPlanetRotation1 = planetRotationSelection;
+                }
+
+                if (planetRotationSelection == 1) {
+                    planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation,
+                                                                 planetRotations[1].rotation,
+                                                                 Time.deltaTime * rotationSpeed);
+                    currentPlanetRotation1 = planetRotationSelection;
+                }
+
+                if (planetRotationSelection == 1) {
+                    planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation,
+                                                                 planetRotations[2].rotation,
+                                                                 Time.deltaTime * rotationSpeed);
+                    currentPlanetRotation1 = planetRotationSelection;
+                }
+
+                if (planetRotationSelection == 1) {
+                    planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation,
+                                                                 planetRotations[3].rotation,
+                                                                 Time.deltaTime * rotationSpeed);
+                    currentPlanetRotation1 = planetRotationSelection;
+                }
             }
             else {
-                GameObject.Find("Planet 1").GetComponent<Renderer>().material = standardMat;
+                GameObject.Find("Planet 1").GetComponent<Renderer>().material = planetOneMat;
             }
 
             if (planetSelection == 1) {
                 GameObject planet = GameObject.Find("Planet 2");
                 planet.GetComponent<Renderer>().material = outlineMat;
 
-                if (planetRotationSelection == 0) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
-                                                                                               planetRotations[0].rotation, 
-                                                                                               Time.deltaTime * rotationSpeed);
-                if (planetRotationSelection == 1) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
-                                                                                               planetRotations[1].rotation, 
-                                                                                               Time.deltaTime * rotationSpeed);
-                if (planetRotationSelection == 2) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
-                                                                                               planetRotations[2].rotation, 
-                                                                                               Time.deltaTime * rotationSpeed);
-                if (planetRotationSelection == 3) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
-                                                                                               planetRotations[3].rotation, 
-                                                                                               Time.deltaTime * rotationSpeed);
+                if (currentPlanetRotation2 >= 0 && currentPlanetRotation2 <= 3) { // check if current planet rotation has been assigned.
+                    planetRotationSelection = currentPlanetRotation2;
+                }
+
+                if (planetRotationSelection == 0){
+                    planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
+                                                                 planetRotations[0].rotation, 
+                                                                 Time.deltaTime * rotationSpeed);
+                    currentPlanetRotation2 = planetRotationSelection;
+                }
+
+                if (planetRotationSelection == 1) {
+                    planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation,
+                                                                 planetRotations[1].rotation,
+                                                                 Time.deltaTime * rotationSpeed);
+                    currentPlanetRotation2 = planetRotationSelection;
+                }
+                if (planetRotationSelection == 2) {
+                    planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation,
+                                                                 planetRotations[2].rotation,
+                                                                 Time.deltaTime * rotationSpeed);
+                    currentPlanetRotation2 = planetRotationSelection;
+                }
+                if (planetRotationSelection == 3) {
+                    planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation,
+                                                                 planetRotations[3].rotation,
+                                                                 Time.deltaTime * rotationSpeed);
+                    currentPlanetRotation2 = planetRotationSelection;
+                }
             }
             else {
-                GameObject.Find("Planet 2").GetComponent<Renderer>().material = standardMat;
+                GameObject.Find("Planet 2").GetComponent<Renderer>().material = planetTwoMat;
             }
 
             if (planetSelection == 2) {
                 GameObject planet = GameObject.Find("Planet 3");
                 planet.GetComponent<Renderer>().material = outlineMat;
 
-                if (planetRotationSelection == 0) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
-                                                                                               planetRotations[0].rotation, 
-                                                                                               Time.deltaTime * rotationSpeed);
-                if (planetRotationSelection == 1) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
-                                                                                               planetRotations[1].rotation, 
-                                                                                               Time.deltaTime * rotationSpeed);
-                if (planetRotationSelection == 2) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
-                                                                                               planetRotations[2].rotation, 
-                                                                                               Time.deltaTime * rotationSpeed);
-                if (planetRotationSelection == 3) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
-                                                                                               planetRotations[3].rotation, 
-                                                                                               Time.deltaTime * rotationSpeed);
+                if (currentPlanetRotation3 >= 0 && currentPlanetRotation3 <= 3) { // check if current planet rotation has been assigned.
+                    planetRotationSelection = currentPlanetRotation3;
+                }
+
+                if (planetRotationSelection == 0) {
+                    planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
+                                                                 planetRotations[0].rotation, 
+                                                                 Time.deltaTime * rotationSpeed);
+                    currentPlanetRotation3 = planetRotationSelection;
+                }
+                if (planetRotationSelection == 1) {
+                    planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation,
+                                                                 planetRotations[1].rotation,
+                                                                 Time.deltaTime * rotationSpeed);
+                    currentPlanetRotation3 = planetRotationSelection;
+                }
+
+                if (planetRotationSelection == 2) {
+                    planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation,
+                                                                 planetRotations[2].rotation,
+                                                                 Time.deltaTime * rotationSpeed);
+                    currentPlanetRotation3 = planetRotationSelection;
+                }
+
+                if (planetRotationSelection == 3) {
+                    planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation,
+                                                                 planetRotations[3].rotation,
+                                                                 Time.deltaTime * rotationSpeed);
+                    currentPlanetRotation3 = planetRotationSelection;
+                }
             }
             else {
-                GameObject.Find("Planet 3").GetComponent<Renderer>().material = standardMat;
+                GameObject.Find("Planet 3").GetComponent<Renderer>().material = planetThreeMat;
             }
 
             if (planetSelection == 3) {
                 GameObject planet = GameObject.Find("Planet 4");
                 planet.GetComponent<Renderer>().material = outlineMat;
 
-                if (planetRotationSelection == 0) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
-                                                                                               planetRotations[0].rotation, 
-                                                                                               Time.deltaTime * rotationSpeed);
-                if (planetRotationSelection == 1) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
-                                                                                               planetRotations[1].rotation, 
-                                                                                               Time.deltaTime * rotationSpeed);
-                if (planetRotationSelection == 2) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
-                                                                                               planetRotations[2].rotation, 
-                                                                                               Time.deltaTime * rotationSpeed);
-                if (planetRotationSelection == 3) planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
-                                                                                               planetRotations[3].rotation, 
-                                                                                               Time.deltaTime * rotationSpeed);
+                if (currentPlanetRotation4 >= 0 && currentPlanetRotation4 <= 3) { // check if current planet rotation has been assigned.
+                    planetRotationSelection = currentPlanetRotation4;
+                }
+
+                if (planetRotationSelection == 0) {
+                    planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation, 
+                                                                 planetRotations[0].rotation, 
+                                                                 Time.deltaTime * rotationSpeed);
+                    currentPlanetRotation4 = planetRotationSelection;
+                }
+
+                if (planetRotationSelection == 1) {
+                    planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation,
+                                                                 planetRotations[1].rotation,
+                                                                 Time.deltaTime * rotationSpeed);
+                    currentPlanetRotation4 = planetRotationSelection;
+                }
+
+                if (planetRotationSelection == 2) {
+                    planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation,
+                                                                 planetRotations[2].rotation,
+                                                                 Time.deltaTime * rotationSpeed);
+                    currentPlanetRotation4 = planetRotationSelection;
+                }
+
+                if (planetRotationSelection == 3) {
+                    planet.transform.rotation = Quaternion.Slerp(planet.transform.rotation,
+                                                                 planetRotations[3].rotation,
+                                                                 Time.deltaTime * rotationSpeed);
+                    currentPlanetRotation4 = planetRotationSelection;
+                }
             }
             else {
-                GameObject.Find("Planet 4").GetComponent<Renderer>().material = standardMat;
+                GameObject.Find("Planet 4").GetComponent<Renderer>().material = planetFourMat;
             }
 
             if (Input.GetKeyDown("w")) planetSelection += 1;
