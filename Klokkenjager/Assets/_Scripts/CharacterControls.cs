@@ -55,14 +55,6 @@ public class CharacterControls : MonoBehaviour {
                 ShufflePuzzleManager.shuffleLockOn = false;
             }
 
-            // Victorian Puzzle
-            if (hit.collider.tag == "VictorianTable") {
-                vpManager.victorianLockOn = true;
-            }
-            else {
-                vpManager.victorianLockOn = false;
-            }
-
             if (hit.collider.CompareTag("Box")) {
                 eToInteract.SetActive(true);
                 if (Input.GetKeyDown("e")) {
