@@ -1680,10 +1680,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 12
 =======
   m_RootOrder: 15
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+  m_RootOrder: 13
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
   m_RootOrder: 13
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -3810,10 +3814,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: 14
 =======
       value: 17
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+      value: 15
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
       value: 15
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -4212,10 +4220,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: 5
 =======
       value: 7
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+      value: 5
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
       value: 5
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -5309,10 +5321,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 8
 =======
   m_RootOrder: 11
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+  m_RootOrder: 9
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
   m_RootOrder: 9
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -6018,10 +6034,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 23
 =======
   m_RootOrder: 26
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+  m_RootOrder: 24
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
   m_RootOrder: 24
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -12739,6 +12759,7 @@ PrefabInstance:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: 1
 =======
       value: 4
@@ -12746,6 +12767,9 @@ PrefabInstance:
 =======
       value: 3
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+      value: 1
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
       value: 1
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -13821,10 +13845,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 11
 =======
   m_RootOrder: 14
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+  m_RootOrder: 12
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
   m_RootOrder: 12
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -15592,6 +15620,7 @@ MeshCollider:
   m_Mesh: {fileID: 652985833691768908, guid: 7859e0e24aca98c4ba7dbb99448e8535, type: 3}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &743945911 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2570767250875483890, guid: 5326a6c6900e4154697f1411267b1d6c,
@@ -15713,6 +15742,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 56f4d2f6836aca94a84d1eda0e5ca744, type: 3}
 =======
 >>>>>>> parent of 4976d19... Medieval Frame
+=======
+>>>>>>> parent of 4976d19... Medieval Frame
 --- !u!1 &748288543
 GameObject:
   m_ObjectHideFlags: 0
@@ -15779,10 +15810,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 26
 =======
   m_RootOrder: 20
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+  m_RootOrder: 18
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
   m_RootOrder: 18
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -17248,6 +17283,7 @@ MeshCollider:
   m_Mesh: {fileID: 4215318308446145190, guid: 7859e0e24aca98c4ba7dbb99448e8535, type: 3}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &809180333 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -480566776465395817, guid: 5326a6c6900e4154697f1411267b1d6c,
@@ -17306,6 +17342,8 @@ Transform:
 >>>>>>> parent of ab8b56b... medieval bookding
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 >>>>>>> master
+=======
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
 >>>>>>> parent of 4976d19... Medieval Frame
 --- !u!1 &819292509 stripped
@@ -17908,10 +17946,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 10
 =======
   m_RootOrder: 13
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+  m_RootOrder: 11
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
   m_RootOrder: 11
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -20051,6 +20093,7 @@ PrefabInstance:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: 2
 =======
       value: 5
@@ -20058,6 +20101,9 @@ PrefabInstance:
 =======
       value: 4
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+      value: 2
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
       value: 2
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -26965,10 +27011,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 19
 =======
   m_RootOrder: 24
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+  m_RootOrder: 22
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
   m_RootOrder: 22
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -27078,10 +27128,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 15
 =======
   m_RootOrder: 18
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+  m_RootOrder: 16
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
   m_RootOrder: 16
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -27993,10 +28047,14 @@ RectTransform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 16
 =======
   m_RootOrder: 19
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+  m_RootOrder: 17
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
   m_RootOrder: 17
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -29862,6 +29920,7 @@ MeshCollider:
   m_Mesh: {fileID: 7565131447803349251, guid: 7859e0e24aca98c4ba7dbb99448e8535, type: 3}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1389027376 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8696209202816315301, guid: 5326a6c6900e4154697f1411267b1d6c,
@@ -29904,6 +29963,8 @@ MeshCollider:
   m_Mesh: {fileID: -5570299738110898795, guid: 5326a6c6900e4154697f1411267b1d6c, type: 3}
 =======
 >>>>>>> master
+=======
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
 >>>>>>> parent of 4976d19... Medieval Frame
 --- !u!1 &1391864195 stripped
@@ -30137,7 +30198,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 20
+=======
+  m_RootOrder: 23
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
   m_RootOrder: 23
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -36824,8 +36889,12 @@ PrefabInstance:
       value: 0.7071068
 =======
       propertyPath: m_RootOrder
+<<<<<<< HEAD
       value: 8
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+      value: 6
+>>>>>>> parent of 4976d19... Medieval Frame
       objectReference: {fileID: 0}
     - target: {fileID: -8350488735263769889, guid: a770f308af160524780e80a936928b76,
         type: 3}
@@ -37073,10 +37142,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 6
 =======
   m_RootOrder: 9
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+  m_RootOrder: 7
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
   m_RootOrder: 7
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -37153,10 +37226,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: 3
 =======
       value: 5
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+      value: 3
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
       value: 3
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -38189,10 +38266,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 24
 =======
   m_RootOrder: 27
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+  m_RootOrder: 25
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
   m_RootOrder: 25
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -38704,10 +38785,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 25
 =======
   m_RootOrder: 21
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+  m_RootOrder: 19
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
   m_RootOrder: 19
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -39191,10 +39276,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 17
 =======
   m_RootOrder: 22
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+  m_RootOrder: 20
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
   m_RootOrder: 20
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -41330,6 +41419,7 @@ Transform:
   - {fileID: 1208364593}
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1954264092 stripped
@@ -41489,6 +41579,9 @@ Transform:
 =======
   m_RootOrder: 14
 >>>>>>> parent of 4976d19... Medieval Frame
+=======
+  m_RootOrder: 14
+>>>>>>> parent of 4976d19... Medieval Frame
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 >>>>>>> parent of ab8b56b... medieval bookding
 --- !u!1 &1958091517
@@ -41584,10 +41677,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 4
 =======
   m_RootOrder: 6
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+  m_RootOrder: 4
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
   m_RootOrder: 4
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -42114,10 +42211,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 9
 =======
   m_RootOrder: 12
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+  m_RootOrder: 10
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
   m_RootOrder: 10
 >>>>>>> parent of 4976d19... Medieval Frame
@@ -43242,10 +43343,14 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 18
 =======
   m_RootOrder: 23
 >>>>>>> parent of ab8b56b... medieval bookding
+=======
+  m_RootOrder: 21
+>>>>>>> parent of 4976d19... Medieval Frame
 =======
   m_RootOrder: 21
 >>>>>>> parent of 4976d19... Medieval Frame
